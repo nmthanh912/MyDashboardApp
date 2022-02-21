@@ -94,7 +94,7 @@ export default function UserMenu() {
                                 to='/'
                                 onClick={() => setDropdownOpen(!dropdownOpen)}
                             >
-                                Sing out
+                                Sign out
                             </Link>
                         </li>
                     </ul>
