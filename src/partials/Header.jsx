@@ -13,7 +13,6 @@ export default function Header() {
                     {/* Header: Left side */}
                     <div className='flex'></div>
 
-
                     {/* Header: Right side */}
                     <div className='flex items-center'>
                         <button

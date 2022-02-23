@@ -7,7 +7,6 @@ import './css/style.scss'
 
 // Import pages
 // import Dashboard from './pages/Dashboard'
-
 import Header from './partials/Header'
 
 function App() {
