@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import Info from '../../utils/Info'
 import RealtimeChart from '../../charts/RealtimeChart'
 
 // Import utilities
@@ -75,14 +74,14 @@ export default function VoltChart() {
                 data: slicedData,
                 fill: true,
                 backgroundColor: `rgba(${hexToRGB(
-                    tailwindConfig().theme.colors.blue[500]
+                    tailwindConfig().theme.colors.orange[500]
                 )}, 0.08)`,
-                borderColor: tailwindConfig().theme.colors.indigo[500],
+                borderColor: tailwindConfig().theme.colors.yellow[500],
                 borderWidth: 2,
                 tension: 0,
                 pointRadius: 0,
                 pointHoverRadius: 3,
-                pointBackgroundColor: tailwindConfig().theme.colors.indigo[500],
+                pointBackgroundColor: tailwindConfig().theme.colors.yellow[500],
                 clip: 20,
             },
         ],
@@ -90,8 +89,8 @@ export default function VoltChart() {
 
     return (
         <div className='flex flex-col col-span-full sm:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200'>
-            <header className='px-5 py-4 border-b border-slate-100 flex items-center'>
-                <h2 className='font-semibold text-slate-800'>Volt Chart</h2>
+            <header className='px-5 py-4 border-b border-slate-100 flex items-center bg-yellow-500'>
+                <h2 className='font-semibold text-slate-800 text-white'>Volt Chart</h2>
             </header>
             {/* Chart built with Chart.js 3 */}
             {/* Change the height attribute to adjust the chart height */}

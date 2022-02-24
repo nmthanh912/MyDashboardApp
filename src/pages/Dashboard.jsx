@@ -7,6 +7,7 @@ import VoltChart from '../partials/dashboard/VoltChart'
 import PowerChart from '../partials/dashboard/PowerChart'
 import EventList from '../partials/dashboard/EventList'
 import Datepicker from '../partials/actions/Datepicker'
+import WelcomeBanner from '../partials/dashboard/WelcomeBanner'
 
 export default function Dashboard() {
     return (
@@ -19,10 +20,13 @@ export default function Dashboard() {
                     <div className='px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto'>
                         {/* Dashboard actions */}
                         <div className='sm:flex sm:justify-between sm:items-center mb-8'>
+                            <WelcomeBanner />
+
                             <div className='grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2'>
-                              <Datepicker/>
-                                {/* Add view button */}
-                                <button className='btn bg-indigo-500 hover:bg-indigo-600 text-white'>
+                                <Datepicker />
+                                {/* Add view button backgroundColor: 'rgb(249,162,71)'},*/}
+                                <button className='btn bg-yellow-500 hover:bg-yellow-600 text-white'
+                                >
                                     <svg
                                         className='w-4 h-4 fill-current opacity-50 shrink-0'
                                         viewBox='0 0 16 16'
