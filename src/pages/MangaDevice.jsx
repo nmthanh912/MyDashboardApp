@@ -1,16 +1,10 @@
-import React from 'react'
-import Header from '../partials/Header'
-
-import DashboardCard04 from '../partials/dashboard/DashboardCard04'
-import AmpereChart from '../partials/dashboard/AmpereChart'
-import VoltChart from '../partials/dashboard/VoltChart'
-import PowerChart from '../partials/dashboard/PowerChart'
-import EventList from '../partials/dashboard/EventList'
-import Datepicker from '../partials/actions/Datepicker'
-import WelcomeBanner from '../partials/dashboard/WelcomeBanner'
 import Footer from '../partials/Footer'
+import Header from '../partials/Header'
+import Datepicker from '../partials/actions/Datepicker'
+import WelcomeDeviceBanner from '../partials/device/WelcomeDeviceBanner'
+import DeviceList from '../partials/device/DeviceList'
 
-export default function Dashboard() {
+export default function ManageDevice() {
     return (
         <div className='flex h-screen overflow-hidden'>
             <div className='relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden'>
@@ -20,7 +14,7 @@ export default function Dashboard() {
                     <div className='px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto'>
                         {/* Dashboard actions */}
                         <div className='sm:flex sm:justify-between sm:items-center mb-8'>
-                            <WelcomeBanner />
+                            <WelcomeDeviceBanner />
 
                             <div className='grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2'>
                                 <Datepicker />
@@ -40,12 +34,7 @@ export default function Dashboard() {
                         </div>
 
                         {/* Cards */}
-                        <div className='grid grid-cols-12 gap-6'>
-                            <PowerChart />
-                            <EventList />
-                            <AmpereChart />
-                            <VoltChart />
-                        </div>
+                        <DeviceList />
                     </div>
                 </main>
                 {/* Site footer */}
