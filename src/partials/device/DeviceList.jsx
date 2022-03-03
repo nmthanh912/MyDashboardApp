@@ -36,74 +36,93 @@ function DashboardCard12() {
     ]
     return (
         <div className='col-span-full xl:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200'>
-            <header className='px-5 py-4 border-b border-slate-100'>
-                <h2 className='font-semibold text-slate-800'>Device List</h2>
+            <header className='px-5 py-4 border-b border-slate-100 bg-yellow-500'>
+                <h2 className='font-semibold text-slate-800 text-white'>
+                    Device List
+                </h2>
             </header>
             <div className='p-3'>
-                <header className='grow flex justify-between text-xs text-slate-400 bg-slate-50 rounded-sm font-semibold p-2'>
-                    <div style={{marginLeft: '36px'}}>DEVICE NAME</div>
-                    <div style={{width: '41%'}}>DESCRIPTION</div>
-                    <div></div>
-                </header>
-                <div>
-                    <ul className='my-1'>
+                <table className='table-auto w-full'>
+                    <thead className='text-xs uppercase text-slate-400 bg-slate-50 rounded-sm'>
+                        <tr>
+                            <th className='p-4'>
+                                <div className='font-semibold text-left'>
+                                    Device Name
+                                </div>
+                            </th>
+                            <th className='p-4'>
+                                <div className='font-semibold text-left'>
+                                    Description
+                                </div>
+                            </th>
+                            <th className='p-4'>
+                                <div className='font-semibold text-left'></div>
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody className='text-sm divide-y divide-slate-100'>
                         {deviceList.map((device) => {
                             return (
-                                <li
-                                    className='flex px-2'
-                                    style={{paddingBottom: '0.5rem'}}
-                                >
-                                    <div className='w-9 h-9'>
-                                        <img
-                                            src={Icon}
-                                            width='20'
-                                            height='20'
-                                            alt='Icon 03'
-                                            className='mt-2'
-                                        />
-                                    </div>
-                                    <div className='grow flex items-center border-b border-slate-100 text-sm py-2'>
-                                        <div className='grow flex justify-between'>
-                                            <div className='self-center'>
-                                                {device.name}
+                                <tr>
+                                    <td className='p-4'>
+                                        <div className='flex items-center'>
+                                            <img
+                                                src={Icon}
+                                                width='20'
+                                                height='20'
+                                                alt='Icon 03'
+                                                className='mr-3'
+                                            />
+                                            <div className='grow flex justify-between'>
+                                                <div className='self-center'>
+                                                    {device.name}
+                                                </div>
                                             </div>
-                                            <div style={{width: '35%'}}>
-                                                {device.description}
+                                        </div>
+                                    </td>
+                                    <td className='p-4'>
+                                        <div className='flex items-center'>
+                                            <div className='grow flex justify-between'>
+                                                <div className='self-center'>
+                                                    {device.description}
+                                                </div>
                                             </div>
-                                            <div className='shrink-0 self-end ml-2'>
-                                                <a
-                                                    className='font-medium text-indigo-500 hover:text-indigo-600'
-                                                    href='#0'
+                                        </div>
+                                    </td>
+                                    <td className='p-4'>
+                                        <div className='shrink-0 self-end ml-2'>
+                                            <a
+                                                className='font-medium text-indigo-500 hover:text-indigo-600'
+                                                href='/device'
+                                            >
+                                                View
+                                                <div
+                                                    className='rounded-full shrink-0 bg-green-500 mr-3'
+                                                    style={{
+                                                        display: 'inline-block',
+                                                        marginLeft: '10px',
+                                                    }}
                                                 >
-                                                    View
-                                                    <div
-                                                        className='rounded-full shrink-0 bg-green-500 mr-3'
+                                                    <svg
+                                                        className='w-7 h-7 fill-current text-green-50'
+                                                        viewBox='0 0 36 36'
                                                         style={{
                                                             display:
                                                                 'inline-block',
-                                                            marginLeft: '10px',
                                                         }}
                                                     >
-                                                        <svg
-                                                            className='w-7 h-7 fill-current text-green-50'
-                                                            viewBox='0 0 36 36'
-                                                            style={{
-                                                                display:
-                                                                    'inline-block',
-                                                            }}
-                                                        >
-                                                            <path d='M18.3 11.3l-1.4 1.4 4.3 4.3H11v2h10.2l-4.3 4.3 1.4 1.4L25 18z' />
-                                                        </svg>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                                        <path d='M18.3 11.3l-1.4 1.4 4.3 4.3H11v2h10.2l-4.3 4.3 1.4 1.4L25 18z' />
+                                                    </svg>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </div>
-                                </li>
+                                    </td>
+                                </tr>
                             )
                         })}
-                    </ul>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     )

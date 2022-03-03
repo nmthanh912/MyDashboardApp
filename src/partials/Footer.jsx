@@ -4,9 +4,6 @@ export default function Footer() {
             className='bg-white border-b border-slate-200 z-30'
             style={{
                 backgroundColor: '#222a45',
-                position: 'inherit',
-                bottom: '0px',
-                width: '100%',
             }}
         >
             <div className='px-4 sm:px-6 lg:px-8'>

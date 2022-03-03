@@ -6,19 +6,21 @@ import DeviceList from '../partials/device/DeviceList'
 
 export default function ManageDevice() {
     return (
-        <div className='flex h-screen overflow-hidden'>
+        <div className='relative flex h-screen overflow-hidden'>
             <div className='relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden'>
                 {/*  Site header */}
                 <Header />
                 <main>
-                    <div className='px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto'>
+                    <div
+                        className='px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto'
+                        style={{minHeight: '100vh'}}
+                    >
                         {/* Dashboard actions */}
                         <div className='sm:flex sm:justify-between sm:items-center mb-8'>
                             <WelcomeDeviceBanner />
 
                             <div className='grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2'>
                                 <Datepicker />
-                                {/* Add view button backgroundColor: 'rgb(249,162,71)'},*/}
                                 <button className='btn bg-yellow-500 hover:bg-yellow-600 text-white'>
                                     <svg
                                         className='w-4 h-4 fill-current opacity-50 shrink-0'
@@ -32,12 +34,9 @@ export default function ManageDevice() {
                                 </button>
                             </div>
                         </div>
-
-                        {/* Cards */}
                         <DeviceList />
                     </div>
                 </main>
-                {/* Site footer */}
                 <Footer />
             </div>
         </div>

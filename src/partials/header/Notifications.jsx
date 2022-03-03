@@ -88,15 +88,10 @@ export default function Notifications() {
                                 onClick={() => setDropdownOpen(!dropdownOpen)}
                             >
                                 <span className='block text-sm mb-2'>
-                                    📣{' '}
-                                    <span className='font-medium text-slate-800'>
-                                        Edit your information in a swipe
-                                    </span>{' '}
-                                    Sint occaecat cupidatat non proident, sunt
-                                    in culpa qui officia deserunt mollit anim.
+                                    Your system has nothing new today!
                                 </span>
                                 <span className='block text-xs font-medium text-slate-400'>
-                                    Feb 12, 2021
+                                    Mar 03, 2022
                                 </span>
                             </Link>
                         </li>

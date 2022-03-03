@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../partials/Header'
+import {Link} from 'react-router-dom'
 
 import DashboardCard04 from '../partials/dashboard/DashboardCard04'
 import AmpereChart from '../partials/dashboard/AmpereChart'
@@ -13,13 +14,13 @@ import Footer from '../partials/Footer'
 export default function Dashboard() {
     return (
         <div className='flex h-screen overflow-hidden'>
-            <div className='relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden'>
+            <div className='flex flex-col flex-1 overflow-y-auto overflow-x-hidden'>
                 {/*  Site header */}
                 <Header />
                 <main>
                     <div className='px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto'>
                         {/* Dashboard actions */}
-                        <div className='sm:flex sm:justify-between sm:items-center mb-8'>
+                        <div className='sm:flex sm:justify-between sm:items-center'>
                             <WelcomeBanner />
 
                             <div className='grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2'>
@@ -36,6 +37,35 @@ export default function Dashboard() {
                                         Add view
                                     </span>
                                 </button>
+                            </div>
+                        </div>
+
+                        <div
+                            className='w-9 h-9 rounded-full shrink-0 bg-yellow-500 my-2 mr-3'
+                            style={{position: 'relative'}}
+                            exact
+                            path='/'
+                        >
+                            <Link to="/">
+                                <svg
+                                    className='w-9 h-9 fill-current text-rose-50'
+                                    viewBox='0 0 36 36'
+                                >
+                                    <path d='M17.7 24.7l1.4-1.4-4.3-4.3H25v-2H14.8l4.3-4.3-1.4-1.4L11 18z' />
+                                </svg>
+                            </Link>
+
+                            <div
+                                style={{
+                                    position: 'absolute',
+                                    top: '6px',
+                                    left: '50px',
+                                    fontSize: '15px',
+                                    width: '200px',
+                                }}
+                            >
+                                {' '}
+                                Back to home page{' '}
                             </div>
                         </div>
 

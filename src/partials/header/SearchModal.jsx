@@ -1,4 +1,4 @@
-import {useEffect, useRef} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {Link} from 'react-router-dom'
 import Transition from '../../utils/Transition'
 
@@ -25,6 +25,12 @@ export default function SearchModal({id, searchId, modalOpen, setModalOpen}) {
         document.addEventListener('keydown', handleEscKey)
         return () => document.removeEventListener('keydown', handleEscKey)
     })
+
+    const [inputText, setInputText] = useState('')
+    const inputHandler = (e) => {
+        var lowercase = e.target.value.toLowerCase()
+        setInputText(lowercase)
+    }
 
     return (
         <>
@@ -69,6 +75,7 @@ export default function SearchModal({id, searchId, modalOpen, setModalOpen}) {
                                 className='w-full border-0 focus:ring-transparent placeholder-slate-400 appearance-none py-3 pl-10 pr-4'
                                 type='search'
                                 placeholder='Search Anything…'
+                                onChange={inputHandler}
                                 ref={searchInput}
                             />
                             <button
