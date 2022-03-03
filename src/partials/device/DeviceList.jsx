@@ -1,39 +1,8 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Icon from '../../images/icon-03.svg'
+import {deviceList} from '../../store/deviceData'
 
-function DashboardCard12() {
-    const deviceList = [
-        {
-            id: 1,
-            name: 'Thiet bi PLC A',
-            description: 'Do nhiet do',
-        },
-        {
-            id: 2,
-            name: 'Thiet bi PLC B',
-            description: 'Do do am',
-        },
-        {
-            id: 3,
-            name: 'Thiet bi PLC C',
-            description: 'Do ap suat',
-        },
-        {
-            id: 4,
-            name: 'Thiet bi PLC D',
-            description: 'Do cuong do dong dien',
-        },
-        {
-            id: 5,
-            name: 'Thiet bi PLC E',
-            description: 'Do dien ap',
-        },
-        {
-            id: 6,
-            name: 'Thiet bi PLC F',
-            description: 'Do cong suat',
-        },
-    ]
+export default function DeviceList() {
     return (
         <div className='col-span-full xl:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200'>
             <header className='px-5 py-4 border-b border-slate-100 bg-yellow-500'>
@@ -127,5 +96,3 @@ function DashboardCard12() {
         </div>
     )
 }
-
-export default DashboardCard12
