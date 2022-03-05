@@ -7,6 +7,7 @@ import './charts/ChartjsConfig'
 // Import pages
 import Dashboard from './pages/Dashboard'
 import ManageDevice from './pages/MangaDevice'
+import Login from './pages/Login'
 
 export default function App() {
     const location = useLocation()
@@ -20,10 +21,10 @@ export default function App() {
     return (
         <>
             <Routes>
-                <Route exact path='/' element={<ManageDevice/>} />
+                <Route exact path='/' element={<ManageDevice />} />
+                <Route exact path='/login' element={<Login/>} />
                 <Route exact path='/device' element={<Dashboard />} />
             </Routes>
         </>
     )
 }
-
