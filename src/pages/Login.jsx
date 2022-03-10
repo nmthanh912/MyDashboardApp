@@ -1,62 +1,40 @@
-// import React, {Component} from 'react'
-// import {connect} from 'react-redux'
-// import {push} from 'connected-react-router'
-
-// import * as actions from '../../store/actions'
-// import { FormattedMessage } from 'react-intl';
-// import {handleLoginApi} from '../../services/userService'
+import {useContext, useEffect, useRef, useState} from 'react'
+import AuthContext from '../context/AuthProvider'
 
 import picture from '../images/loginImage.png'
 import './Login.scss'
 
 export default function Login() {
-    // handleOnChangeEmail = (event) => {
-    //     this.setState({
-    //         email: event.target.value,
-    //     })
-    // }
+    const email = 'minhthanh@gmail.com'
+    const password = '123456'
 
-    // handleOnChangePassword = (event) => {
-    //     this.setState({
-    //         password: event.target.value,
-    //     })
-    // }
+    const errRef = useRef()
 
-    // handleOnClickHidden = () => {
-    //     this.setState({
-    //         isHiddenPasswords: !this.state.isHiddenPasswords,
-    //     })
-    // }
+    const [inputEmail, setInputEmail] = useState('')
+    const [inputPassword, setInputPassword] = useState('')
+    const [errMsg, setErrMsg] = useState('')
 
-    // handleOnClickLogin = async () => {
-    //     this.setState({
-    //         errMessage: '',
-    //     })
+    const [sucess, setSuccess] = useState(false)
 
-    //     try {
-    //         let data = await handleLoginApi(
-    //             this.state.email,
-    //             this.state.password
-    //         )
-    //         if (data && data.errCode !== 0) {
-    //             this.setState({
-    //                 errMessage: data.message,
-    //             })
-    //         }
+    const {setAuth} = useContext(AuthContext)
 
-    //         if (data && data.errCode === 0) {
-    //             this.props.userLoginSuccess(data.user)
-    //         }
-    //     } catch (error) {
-    //         if (error.response) {
-    //             if (error.response.data) {
-    //                 this.setState({
-    //                     errMessage: error.response.data.message,
-    //                 })
-    //             }
-    //         }
-    //     }
-    // }
+    useEffect(() => {
+        setErrMsg('')
+    }, [inputEmail, inputPassword])
+
+    const handleLogin = () => {
+        if (!inputEmail || !inputPassword) {
+            return setErrMsg('Missing input parameters!')
+        } else if (inputEmail != email) {
+            return setErrMsg('Wrong email! Please try again!')
+        } else if (inputPassword != password) {
+            return setErrMsg('Wrong password! Please try again!')
+        } else {
+            setInputEmail('')
+            setInputPassword('')
+            setSuccess(true)
+        }
+    }
 
     return (
         <div className='login-background'>
@@ -67,40 +45,34 @@ export default function Login() {
                     </div>
 
                     <div className='login-right-content'>
-                        <div className='col-12 login-text'>
-                            Login to your account
-                        </div>
+                        <div className='col-12 login-text'>Login to your account</div>
                         <div className='col-12 form-group login-input'>
                             <div> Email: </div>
                             <input
+                                require
                                 type='email'
                                 className='form-control'
                                 placeholder='Enter your email...'
-                                // value={this.state.email}
-                                // onChange={(event) =>
-                                //     this.handleOnChangeEmail(event)
-                                // }
+                                value={inputEmail}
+                                onChange={(e) => setInputEmail(e.target.value)}
                             />
                         </div>
                         <div className='col-12 form-group login-input'>
                             <div> Password: </div>
                             <input
+                                require
                                 type='password'
                                 className='form-control'
                                 placeholder='Enter your password...'
-                                // value={this.state.password}
-                                // onChange={(event) =>
-                                //     this.handleOnChangePassword(event)
-                                // }
+                                value={inputPassword}
+                                onChange={(e) => setInputPassword(e.target.value)}
                             />
                         </div>
+                        <div ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'}>
+                            {errMsg}
+                        </div>
                         <div className='col-12 btn-fix'>
-                            <button
-                                className='login-btn'
-                                // onClick={() => {
-                                //     this.handleOnClickLogin()
-                                // }}
-                            >
+                            <button className='login-btn' onClick={handleLogin}>
                                 Login
                             </button>
                         </div>

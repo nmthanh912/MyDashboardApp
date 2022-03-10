@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react'
 import {Routes, Route, useLocation} from 'react-router-dom'
 
+// import css and config
 import './css/style.scss'
 import './charts/ChartjsConfig'
 
-// Import pages
+// import pages
 import Dashboard from './pages/Dashboard'
 import ManageDevice from './pages/MangaDevice'
 import Login from './pages/Login'
@@ -19,12 +20,12 @@ export default function App() {
     }, [location.pathname]) // triggered on route change
 
     return (
-        <>
-            <Routes>
-                <Route exact path='/' element={<ManageDevice />} />
-                <Route exact path='/login' element={<Login/>} />
-                <Route exact path='/device' element={<Dashboard />} />
-            </Routes>
-        </>
+        <Routes>
+            <Route exact path='/login' element={<Login />} />
+
+            <Route exact path='/' element={<ManageDevice />} />
+            <Route exact path='/home' element={<ManageDevice />} />
+            <Route exact path='/device' element={<Dashboard />} />
+        </Routes>
     )
 }

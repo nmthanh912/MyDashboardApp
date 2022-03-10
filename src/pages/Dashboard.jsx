@@ -46,7 +46,7 @@ export default function Dashboard() {
                             exact
                             path='/'
                         >
-                            <Link to="/">
+                            <Link to='/'>
                                 <svg
                                     className='w-9 h-9 fill-current text-rose-50'
                                     viewBox='0 0 36 36'

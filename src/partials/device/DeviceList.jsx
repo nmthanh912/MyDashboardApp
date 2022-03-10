@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import Icon from '../../images/icon-03.svg'
 import {deviceList} from '../../store/deviceData'
+import {Link} from 'react-router-dom'
 
 export default function DeviceList() {
     return (
@@ -61,10 +62,8 @@ export default function DeviceList() {
                                     </td>
                                     <td className='p-4'>
                                         <div className='shrink-0 self-end ml-2'>
-                                            <a
-                                                className='font-medium text-indigo-500 hover:text-indigo-600'
-                                                href='/device'
-                                            >
+                                            {/* <a href={`/device?device=${device.name}`}>hello</a> */}
+                                            <Link to={`/device`}>
                                                 View
                                                 <div
                                                     className='rounded-full shrink-0 bg-green-500 mr-3'
@@ -84,7 +83,7 @@ export default function DeviceList() {
                                                         <path d='M18.3 11.3l-1.4 1.4 4.3 4.3H11v2h10.2l-4.3 4.3 1.4 1.4L25 18z' />
                                                     </svg>
                                                 </div>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </td>
                                 </tr>

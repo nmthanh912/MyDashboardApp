@@ -1,3 +1,20 @@
+.offscreen {
+    height: 24px;
+}
+
+.hide {
+    display: none;
+}
+
+.errmsg {
+    color: firebrick;
+    font-weight: bold;
+}
+
+.line {
+    display: inline-block;
+}
+
 .login-background {
     height: 100vh;
     background-size: cover;
@@ -19,7 +36,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        height: 52%;
+        height: 55%;
         width: 60%;
 
         .login-content {
@@ -56,9 +73,10 @@
                     width: 100%;
                     height: 50%;
                     border: 1px solid #cdc9c9;
+                    margin-top: 5px;
 
                     &:hover {
-                        border: 1px solid black;
+                        border: 1px solid blue;
                     }
                 }
             }
@@ -66,7 +84,6 @@
             .btn-fix {
                 display: flex;
                 justify-content: center;
-                margin-top: 30px;
 
                 .login-btn {
                     cursor: pointer;
