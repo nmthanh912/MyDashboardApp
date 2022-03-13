@@ -1,8 +1,10 @@
-import {useContext, useEffect, useRef, useState} from 'react'
-import AuthContext from '../context/AuthProvider'
+import {useEffect, useRef, useState} from 'react'
+import { useNavigate, useLocation} from 'react-router-dom'
 
 import picture from '../images/loginImage.png'
-import './Login.scss'
+import '../css/Login.scss'
+
+import useAuth from '../hooks/useAuth'
 
 export default function Login() {
     const email = 'minhthanh@gmail.com'
@@ -14,9 +16,11 @@ export default function Login() {
     const [inputPassword, setInputPassword] = useState('')
     const [errMsg, setErrMsg] = useState('')
 
-    const [sucess, setSuccess] = useState(false)
+    const {setAuth} = useAuth()
 
-    const {setAuth} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
 
     useEffect(() => {
         setErrMsg('')
@@ -30,9 +34,11 @@ export default function Login() {
         } else if (inputPassword != password) {
             return setErrMsg('Wrong password! Please try again!')
         } else {
+            setAuth({user: email})
+            localStorage.setItem('user', email)
             setInputEmail('')
             setInputPassword('')
-            setSuccess(true)
+            navigate(from, {replace: true})
         }
     }
 

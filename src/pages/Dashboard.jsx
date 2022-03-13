@@ -27,15 +27,10 @@ export default function Dashboard() {
                                 <Datepicker />
                                 {/* Add view button backgroundColor: 'rgb(249,162,71)'},*/}
                                 <button className='btn bg-yellow-500 hover:bg-yellow-600 text-white'>
-                                    <svg
-                                        className='w-4 h-4 fill-current opacity-50 shrink-0'
-                                        viewBox='0 0 16 16'
-                                    >
+                                    <svg className='w-4 h-4 fill-current opacity-50 shrink-0' viewBox='0 0 16 16'>
                                         <path d='M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z' />
                                     </svg>
-                                    <span className='hidden xs:block ml-2'>
-                                        Add view
-                                    </span>
+                                    <span className='hidden xs:block ml-2'>Add view</span>
                                 </button>
                             </div>
                         </div>
@@ -47,10 +42,7 @@ export default function Dashboard() {
                             path='/'
                         >
                             <Link to='/'>
-                                <svg
-                                    className='w-9 h-9 fill-current text-rose-50'
-                                    viewBox='0 0 36 36'
-                                >
+                                <svg className='w-9 h-9 fill-current text-rose-50' viewBox='0 0 36 36'>
                                     <path d='M17.7 24.7l1.4-1.4-4.3-4.3H25v-2H14.8l4.3-4.3-1.4-1.4L11 18z' />
                                 </svg>
                             </Link>

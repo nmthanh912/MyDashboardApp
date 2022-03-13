@@ -1,7 +1,8 @@
 import {useEffect, useRef, useState} from 'react'
 import UserAvatar from '../../images/myAvatar.jpg'
 import Transition from '../../utils/Transition'
-import {Link} from 'react-router-dom'
+
+import useAuth from '../../hooks/useAuth'
 
 export default function UserMenu() {
     const trigger = useRef(null)
@@ -9,15 +10,12 @@ export default function UserMenu() {
 
     const [dropdownOpen, setDropdownOpen] = useState(false)
 
+    const {setAuth} = useAuth()
+
     // close on click outside
     useEffect(() => {
         const handleClick = ({target}) => {
-            if (
-                !dropdownOpen ||
-                dropdown.current.contains(target) ||
-                trigger.current.contains(target)
-            )
-                return
+            if (!dropdownOpen || dropdown.current.contains(target) || trigger.current.contains(target)) return
             setDropdownOpen(false)
         }
         document.addEventListener('click', handleClick)
@@ -34,6 +32,11 @@ export default function UserMenu() {
         return () => document.removeEventListener('keydown', handleEnterKey)
     })
 
+    const handleLogout = () => {
+        setAuth({})
+        localStorage.clear()
+    }
+
     return (
         <div className='relative inline-flex'>
             <button
@@ -44,21 +47,10 @@ export default function UserMenu() {
                 aria-expanded={dropdownOpen}
                 toggle={() => setDropdownOpen(!dropdownOpen)}
             >
-                <img
-                    className='w-8 h-8 rounded-full'
-                    src={UserAvatar}
-                    width='32'
-                    height='32'
-                    alt='User'
-                />
+                <img className='w-8 h-8 rounded-full' src={UserAvatar} width='32' height='32' alt='User' />
                 <div className='flex items-center truncate'>
-                    <span className='truncate ml-2 text-sm font-medium group-hover:text-slate-800'>
-                        Minh Thanh
-                    </span>
-                    <svg
-                        className='w-3 h-3 shrink-0 ml-1 fill-current text-slate-400'
-                        viewBox='0 0 12 12'
-                    >
+                    <span className='truncate ml-2 text-sm font-medium group-hover:text-slate-800'>Minh Thanh</span>
+                    <svg className='w-3 h-3 shrink-0 ml-1 fill-current text-slate-400' viewBox='0 0 12 12'>
                         <path d='M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z' />
                     </svg>
                 </div>
@@ -74,28 +66,19 @@ export default function UserMenu() {
                 leaveStart='opacity-100'
                 leaveEnd='opacity-0'
             >
-                <div
-                    ref={dropdown}
-                    onFocus={() => setDropdownOpen(true)}
-                    onBlur={() => setDropdownOpen(false)}
-                >
+                <div ref={dropdown} onFocus={() => setDropdownOpen(true)} onBlur={() => setDropdownOpen(false)}>
                     <div className='pt-0.5 pb-2 px-3 mb-1 border-b border-slate-200'>
-                        <div className='font-medium text-slate-800'>
-                            Minh Thanh
-                        </div>
-                        <div className='text-xs text-slate-500 italic'>
-                            Administrator
-                        </div>
+                        <div className='font-medium text-slate-800'>Minh Thanh</div>
+                        <div className='text-xs text-slate-500 italic'>Administrator</div>
                     </div>
                     <ul>
                         <li>
-                            <Link
+                            <button
                                 className='font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3'
-                                to='/'
-                                onClick={() => setDropdownOpen(!dropdownOpen)}
+                                onClick={handleLogout}
                             >
                                 Sign out
-                            </Link>
+                            </button>
                         </li>
                     </ul>
                 </div>

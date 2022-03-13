@@ -32,9 +32,9 @@ export default function DeviceList() {
                     </thead>
 
                     <tbody className='text-sm divide-y divide-slate-100'>
-                        {deviceList.map((device) => {
+                        {deviceList.map((device, index) => {
                             return (
-                                <tr>
+                                <tr key={index}>
                                     <td className='p-4'>
                                         <div className='flex items-center'>
                                             <img
